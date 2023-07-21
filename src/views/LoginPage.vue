@@ -1,5 +1,6 @@
 <script setup>
 import { useStore } from '@/stores/store'
+import axios from 'axios'
 </script>
 
 <template>
@@ -93,7 +94,19 @@ export default {
   },
   methods: {
     submitForm() {
-      alert(`Enviando formulário: \nemail: ${this.email}\nsenha: ${this.password}`)
+      const loginData = {
+        username: this.email,
+        password: this.password
+      }
+      axios
+        .post('https://fakestoreapi.com/auth/login', loginData)
+        .then((response) => {
+        useStore().switchUserLogin()
+          console.log(response.data)
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     }
   }
 }
