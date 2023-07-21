@@ -14,12 +14,12 @@ import axios from 'axios'
     <form class="container Form" @submit.prevent="submitForm">
       <div class="row justify-content-center align-items-center">
         <div class="col">
-          <h3>{{ textData.title }}</h3>
+          <h3 class="secondaryTitle bold">{{ textData.title }}</h3>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <p>{{ textData.subtitle }}</p>
+          <p class="subtitle">{{ textData.subtitle }}</p>
         </div>
       </div>
 
@@ -57,7 +57,7 @@ import axios from 'axios'
         </div>
       </div>
 
-      <div class="row mt-4">
+      <div class="row mt-3">
         <div class="col">
           <button type="submit">{{ textData.login }}</button>
         </div>
@@ -66,7 +66,7 @@ import axios from 'axios'
 
     <div class="row justify-content-center align-items-center text-center">
       <div class="col">
-        <a href="#" target="_blank">
+        <a class="subtitle" href="#" target="_blank">
           {{ textData.notMember }} <em>{{ textData.signin }}</em>
         </a>
       </div>
@@ -114,41 +114,61 @@ export default {
 
 <style lang="scss" scoped>
 .LoginPage {
-  margin: 0 auto;
-  margin-top: 18.26vh;
+  margin-top: 150px;
+
+  .logo--default {
+    height: 62px;
+    width: auto;
+  }
+
+  .secondaryTitle {
+    line-height: 16px;
+  }
+
   em {
     color: $color-highlight !important;
   }
 
+  .subtitle {
+      color: $color-text;
+  }
   a {
     color: #515d74;
     text-decoration: none;
+
   }
 
   h3 {
     font-weight: bold;
   }
   .Form {
-    width: 617px;
-    min-height: 492px;
+    width: 570px;
+    // min-height: 492px;
     border-radius: 5px;
     border: 1px solid #e6eaf2;
     background: #fff;
     padding: 28px 30px;
-    margin-top: 32px;
+    margin-top: 30px;
 
     label {
       display: block;
+      margin-left: 2px;
     }
 
     input,
     button {
       width: 100%;
-      padding: 20px 16px;
+      padding: 24px 16px;
+    //   margin: 0 auto;
       font-size: 16px;
       border-radius: 5px;
       border: 1px solid rgba(81, 93, 116, 0.5);
       background: #fff;
+    }
+
+    button {
+        outline: none;
+        border: none;
     }
 
     input::placeholder,

@@ -14,7 +14,7 @@ body {
   background: $color-background;
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: $font-family;
+  font-family: $font-family !important;
   font-size: $font-size-default;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -30,4 +30,28 @@ body {
 
 .highlight {
   color: $color-highlight;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.mainTitle {
+  font-size: $font-size-mainTitle;
+}
+
+.secondaryTitle {
+  font-size: $font-size-secondaryTitle;
+}
+
+.subtitle {
+  font-size: $font-size-subtitle;
+}
+
+.textXm {
+  font-size: $font-size-sm;
+}
+
+.textXsm {
+  font-size: $font-size-xsm;
 }

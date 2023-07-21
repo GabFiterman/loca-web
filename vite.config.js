@@ -30,8 +30,8 @@ export default defineConfig({
           $font-size-secondaryTitle: 26px;
           $font-size-subtitle: 18px;
           $font-size-default: 17px;
-          $font-size-xm: 14px;
           $font-size-sm: 16px;
+          $font-size-xsm: 14px;
         `
       }
     }
