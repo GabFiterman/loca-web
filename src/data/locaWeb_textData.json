@@ -1,0 +1,185 @@
+{
+  "Global": {
+    "logoFile": "LogoLocalWeb.png"
+  },
+  "Login": {
+    "title": "Entre na sua conta",
+    "subtitle": "Para acessar sua conta informe seu e-mail e senha",
+    "email": {
+      "title": "E-mail",
+      "placeholder": "Seu e-mail"
+    },
+    "password": {
+      "title": "Senha",
+      "placeholder": "Sua senha"
+    },
+    "forgotPass": "Esqueci minha senha",
+    "login": "Fazer login",
+    "notMember": "Ainda não tem conta?",
+    "signin": "Cadastre-se"
+  },
+  "RegisterFirst": {
+    "title": "<p>Você está muito próximo de mudar a forma de <b class=\"highlight\"> hospedar seu site</b></p>",
+    "subtitle": "Escolha o seu plano",
+    "plans": [
+      {
+        "id": 1,
+        "highlight": false,
+        "name": "Hospedagem 1",
+        "value": 0,
+        "paymentConditions": ["você não paga nada para usar", "sem taxa de setup"],
+        "recomendation": "Ideal para quem está começando.",
+        "btnText": "Escolher este plano",
+        "beneficts": [
+          "<b class=\"Register__beneficts--bold\">Seu site em servidores <b class=\"underline\">no Estados Unidos</b>.</b>",
+          "<p class=\"Register__beneficts--default\">Servidores em nossos data center americanos;</p>",
+          "<p class=\"Register__beneficts--default\">ASP, ASP.NET 2.0/3.0/3.5/ e 4.0/4.5/4.5.1/4.5.2 (medium trust) ou PHP 5.3, 5.4, 5.5, 5.6 e 7.0;</p>",
+          "<p class=\"Register__beneficts--default\">1 usuário de FTP para upload ou download;</p>",
+          "<p class=\"Register__beneficts--default\">1 contas de e-mails profissionais;</p>",
+          "<p class=\"Register__beneficts--default\">1 subdomínio gratuito;</p>",
+          "<b class=\"Register__beneficts--bold\">Suporte 24 horas, 7 dias por semana grátis;</b>",
+          "<b class=\"Register__beneficts--bold\">Aplicativos disponíveis;</b>",
+          "<p class=\"Register__beneficts--default\">Wordpress;</p>",
+          "<p class=\"Register__beneficts--default\">Drupal;</p>",
+          "<p class=\"Register__beneficts--default\">entre outros...</p>",
+          "<b class=\"Register__beneficts--bold\">Você ainda tem</b>",
+          "<p class=\"Register__beneficts--default\">Webmail RoundCube;</p>",
+          "<p class=\"Register__beneficts--default\">AntiSpam;</p>",
+          "<p class=\"Register__beneficts--default\">Painel de gerenciamento de DNS;</p>",
+          "<p class=\"Register__beneficts--default\">Painel de controle web;</p>",
+          "<p class=\"Register__beneficts--default\">Configurações de PHP personalizáveis;</p>",
+          "<p class=\"Register__beneficts--default\">Certificado SSL Grátis;</p>",
+          "<p class=\"Register__beneficts--default\">Transferência ilimitada.</p>"
+        ]
+      },
+      {
+        "id": 2,
+        "highlight": true,
+        "name": "Hospedagem 2",
+        "value": 499,
+        "paymentConditions": ["cobrado mensalmente", "sem taxa de setup"],
+        "recomendation": "Ideal para site com mais mais de 30k de visitas.",
+        "btnText": "Escolher este plano",
+        "beneficts": [
+          "<p class=\"Register__beneficts--default\">Servidores em nosso de São Paulo;</p>",
+          "<p class=\"Register__beneficts--default\">ASP, ASP.NET 2.0/3.0/3.5/ e 4.0/4.5/4.5.1/4.5.2 (medium trust) ou PHP 5.3, 5.4, 5.5, 5.6 e 7.0;</p>",
+          "<p class=\"Register__beneficts--default\">10 usuários de FTP para upload ou download;</p>",
+          "<p class=\"Register__beneficts--default\">30 contas de e-mails profissionais;</p>",
+          "<p class=\"Register__beneficts--default\">10 subdomínios gratuitos;</p>",
+          "<b class=\"Register__beneficts--bold\">Suporte 24 horas, 7 dias por semana grátis;</b>",
+          "<b class=\"Register__beneficts--bold\">Aplicativos disponíveis;</b>",
+          "<p class=\"Register__beneficts--default\">Wordpress;</p>",
+          "<p class=\"Register__beneficts--default\">Drupal;</p>",
+          "<p class=\"Register__beneficts--default\">entre outros...</p>",
+          "<b class=\"Register__beneficts--bold\">Migração Gratuita;</b>",
+          "<p class=\"Register__beneficts--default\">Migramos todos seus sites para nossos servidores;</p>",
+          "<b class=\"Register__beneficts--bold\">Você ainda tem</b>",
+          "<p class=\"Register__beneficts--default\">Webmail RoundCube;</p>",
+          "<p class=\"Register__beneficts--default\">AntiSpam;</p>",
+          "<p class=\"Register__beneficts--default\">Painel de gerenciamento de DNS;</p>",
+          "<p class=\"Register__beneficts--default\">Painel de controle web;</p>",
+          "<p class=\"Register__beneficts--default\">Configurações de PHP personalizáveis;</p>",
+          "<p class=\"Register__beneficts--default\">Certificado SSL Grátis;</p>",
+          "<p class=\"Register__beneficts--default\">Transferência ilimitada.</p>"
+        ]
+      },
+      {
+        "id": 3,
+        "highlight": false,
+        "name": "Hospedagem 2",
+        "value": 999,
+        "paymentConditions": ["cobrado mensalmente", "sem taxa de setup"],
+        "recomendation": "Ideal para site com mais mais de 60k de visitas.",
+        "btnText": "Escolher este plano",
+        "beneficts": [
+          "<p class=\"Register__beneficts--default\">Servidores em nosso de São Paulo;</p>",
+          "<p class=\"Register__beneficts--default\">ASP, ASP.NET 2.0/3.0/3.5/ e 4.0/4.5/4.5.1/4.5.2 (medium trust) ou PHP 5.3, 5.4, 5.5, 5.6 e 7.0;</p>",
+          "<p class=\"Register__beneficts--default\"><em class=\"underline\">ilimitados</em>usuários de FTP para upload ou download;</p>",
+          "<p class=\"Register__beneficts--default\"><em class=\"underline\">ilimitados</em> contas de e-mails profissionais;</p>",
+          "<p class=\"Register__beneficts--default\">50 subdomínios gratuitos;</p>",
+          "<b class=\"Register__beneficts--bold\">Suporte 24 horas, 7 dias por semana grátis;</b>",
+          "<b class=\"Register__beneficts--bold\">Aplicativos disponíveis;</b>",
+          "<p class=\"Register__beneficts--default\">Wordpress;</p>",
+          "<p class=\"Register__beneficts--default\">Drupal;</p>",
+          "<p class=\"Register__beneficts--default\">entre outros...</p>",
+          "<b class=\"Register__beneficts--bold\">Migração Gratuita;</b>",
+          "<p class=\"Register__beneficts--default\">Migramos todos seus sites para nossos servidores;</p>",
+          "<b class=\"Register__beneficts--bold\">Você ainda tem</b>",
+          "<p class=\"Register__beneficts--default\">Webmail RoundCube;</p>",
+          "<p class=\"Register__beneficts--default\">AntiSpam;</p>",
+          "<p class=\"Register__beneficts--default\">Painel de gerenciamento de DNS;</p>",
+          "<p class=\"Register__beneficts--default\">Painel de controle web;</p>",
+          "<p class=\"Register__beneficts--default\">Configurações de PHP personalizáveis;</p>",
+          "<p class=\"Register__beneficts--default\">Certificado SSL Grátis;</p>",
+          "<p class=\"Register__beneficts--default\">Transferência ilimitada.</p>"
+        ]
+      }
+    ]
+  },
+  "RegisterSecond": {
+    "title": "<p>Você está muito próximo de mudar a forma de <b class=\"highlight\"> hospedar seu site</b></p>",
+    "formPersonal": {
+      "title": "Dados Pessoais",
+      "subtitle": "Informe seus dados pessoais para acesso à sua conta",
+      "inputs": [
+        {
+          "type": "text",
+          "name": "name",
+          "title": "Nome completo",
+          "placeholder": "Informe seu nome completo",
+          "observation": null
+        },
+        {
+          "type": "text",
+          "name": "phone",
+          "title": "Celular",
+          "placeholder": "(99) 99999-0000",
+          "observation": null
+        },
+        {
+          "type": "email",
+          "name": "email",
+          "title": "E-mail",
+          "placeholder": "Informe seu e-mail",
+          "observation": null
+        },
+        {
+          "type": "password",
+          "name": "password",
+          "title": "Senha",
+          "placeholder": null,
+          "observation": "No mínimo 8 caracteres"
+        }
+      ]
+    },
+    "formProfessional": {
+      "title": "Dados do seu site",
+      "subtitle": null,
+      "inputs": [
+        {
+          "type": "text",
+          "name": "siteName",
+          "title": "Nome do seu site",
+          "placeholder": "Meu site",
+          "observation": "Exatamente igual o título do seu site"
+        }
+      ]
+    },
+    "privacyTerms": "<p>Ao concluir com seu cadastro você concorda com nossos <a class=\"underline\" href=\"https://www.mussumipsum.com/\" target=\"_blank\">termos de uso</a> e <a class=\"underline\" href=\"https://www.mussumipsum.com/\" target=\"_blank\">politicas de privacidade</a>.</p>",
+    "createAccount": "Criar Conta",
+    "selectedPlan": "Plano Escolhido",
+    "changePlan": "Trocar Plano"
+  },
+  "InitialPage": {
+    "title": "Olá",
+    "subtitle": "Seja bem vindo a sua conta de hospedagem.",
+    "mainResource": {
+      "type": "image",
+      "src": "",
+      "alt": "",
+      "href": ""
+    },
+    "contactUs": "<p>Caso tenha alguma dúvida, <a class=\"underline\" href=\"https://www.mussumipsum.com/\" target=\"_blank\">visite nossa central de ajuda.</a></p>",
+    "logout": "Sair"
+  }
+}
