@@ -1,32 +1,33 @@
-<!-- <script setup>
-</script> -->
+<script setup>
+import { useStore } from '@/stores/store'
+</script>
 
 <template>
   <main class="container LoginPage">
     <div class="row justify-content-center align-items-center">
       <div class="col text-center">
-        <img class="logo--default" :src="logoSrc" alt="Logo LocaWeb" />
+        <img class="logo--default" :src="`/public/img/${logoFile}`" alt="Logo LocaWeb" />
       </div>
     </div>
 
     <form class="container Form" @submit.prevent="submitForm">
       <div class="row justify-content-center align-items-center">
         <div class="col">
-          <h3>Entre na sua conta</h3>
+          <h3>{{ textData.title }}</h3>
         </div>
       </div>
       <div class="row">
         <div class="col">
-          <p>Para acessar sua conta informe seu e-mail e senha</p>
+          <p>{{ textData.subtitle }}</p>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <label for="email">E-mail</label>
+          <label for="email">{{ textData.email.title }}</label>
           <input
             type="email"
-            placeholder="Seu e-mail"
+            :placeholder="textData.email.placeholder"
             v-model="email"
             id="email"
             name="email"
@@ -37,13 +38,13 @@
 
       <div class="row mt-3">
         <div class="col">
-          <label for="password">Senha</label>
+          <label for="password">{{ textData.password.title }}</label>
           <input
             type="password"
             id="password"
             name="password"
             v-model="password"
-            placeholder="Sua senha "
+            :placeholder="textData.password.placeholder"
             required
           />
         </div>
@@ -51,20 +52,22 @@
 
       <div class="row text-end">
         <div class="col">
-          <a href="#" target="_blank">Esqueci minha senha</a>
+          <a href="#" target="_blank">{{ textData.forgotPass }}</a>
         </div>
       </div>
 
       <div class="row mt-4">
         <div class="col">
-          <button type="submit">Fazer Login</button>
+          <button type="submit">{{ textData.login }}</button>
         </div>
       </div>
     </form>
 
     <div class="row justify-content-center align-items-center text-center">
       <div class="col">
-        <p>Ainda não tem uma conta? <em>Cadastre-se</em></p>
+        <a href="#" target="_blank">
+          {{ textData.notMember }} <em>{{ textData.signin }}</em>
+        </a>
       </div>
     </div>
   </main>
@@ -74,9 +77,18 @@
 export default {
   data() {
     return {
-      logoSrc: '/img/Logo-LocaWeb.webp',
       email: null,
       password: null
+    }
+  },
+  computed: {
+    textData() {
+      const store = useStore()
+      return store.jsonData.Login
+    },
+    logoFile() {
+      const store = useStore()
+      return store.jsonData.Global.logoFile
     }
   },
   methods: {
@@ -104,7 +116,6 @@ export default {
     font-weight: bold;
   }
   .Form {
-    background-color: bisque;
     width: 617px;
     min-height: 492px;
     border-radius: 5px;
@@ -129,7 +140,7 @@ export default {
 
     input::placeholder,
     textarea::placeholder {
-      color: inherit; /* Defina a cor desejada para o placeholder */
+      color: inherit;
     }
 
     button {
