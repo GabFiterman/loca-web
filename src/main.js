@@ -4,7 +4,7 @@ import 'bootstrap'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { useStore } from '@/stores/store';
+import { useStore } from '@/stores/store'
 
 import App from './App.vue'
 import router from './router'
@@ -16,5 +16,5 @@ app.use(router)
 
 app.mount('#app')
 
-const store = useStore();
-store.fetchJsonData();
+const store = useStore()
+store.fetchJsonData()

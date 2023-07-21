@@ -101,7 +101,7 @@ export default {
       axios
         .post('https://fakestoreapi.com/auth/login', loginData)
         .then((response) => {
-        useStore().switchUserLogin()
+          useStore().switchUserLogin()
           console.log(response.data)
         })
         .catch((error) => {
@@ -127,15 +127,15 @@ export default {
 
   em {
     color: $color-highlight !important;
+    font-style: normal;
   }
 
   .subtitle {
-      color: $color-text;
+    color: $color-text;
   }
   a {
     color: #515d74;
     text-decoration: none;
-
   }
 
   h3 {
@@ -159,7 +159,7 @@ export default {
     button {
       width: 100%;
       padding: 24px 16px;
-    //   margin: 0 auto;
+      //   margin: 0 auto;
       font-size: 16px;
       border-radius: 5px;
       border: 1px solid rgba(81, 93, 116, 0.5);
@@ -167,8 +167,8 @@ export default {
     }
 
     button {
-        outline: none;
-        border: none;
+      outline: none;
+      border: none;
     }
 
     input::placeholder,
