@@ -4,10 +4,10 @@ import axios from 'axios'
 </script>
 
 <template>
-  <main class="container LoginPage">
-    <div class="row justify-content-center align-items-center">
+  <main v-if="textData" class="container LoginPage">
+    <div v-if="logoFile" class="row justify-content-center align-items-center">
       <div class="col text-center">
-        <img class="logo--default" :src="`/public/img/${logoFile}`" alt="Logo LocaWeb" />
+        <img class="logo--default" :src="`/img/${logoFile}`" alt="Logo LocaWeb" />
       </div>
     </div>
 
@@ -85,11 +85,19 @@ export default {
   computed: {
     textData() {
       const store = useStore()
-      return store.jsonData.Login
+      if (!store.jsonData) return ''
+      const jsonString = JSON.stringify(store.jsonData)
+      const jsonObject = JSON.parse(jsonString)
+
+      return jsonObject.Login
     },
     logoFile() {
       const store = useStore()
-      return store.jsonData.Global.logoFile
+      if (!store.jsonData) return ''
+      const jsonString = JSON.stringify(store.jsonData)
+      const jsonObject = JSON.parse(jsonString)
+
+      return jsonObject.Global.logoFile
     }
   },
   methods: {
