@@ -16,9 +16,9 @@ import LoginForm from '../components/LoginForm.vue'
 
     <div class="row justify-content-center align-items-center text-center">
       <div class="col">
-        <a class="subtitle" href="#" target="_blank">
+        <router-link to="/plans" class="subtitle">
           {{ textData.notMember }} <em>{{ textData.signin }}</em>
-        </a>
+        </router-link>
       </div>
     </div>
   </main>
