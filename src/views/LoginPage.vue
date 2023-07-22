@@ -54,8 +54,8 @@ export default {
       const store = useStore()
       axios
         .post('https://fakestoreapi.com/auth/login', loginData)
-        .then(() => {
-          store.switchUserLogin()
+        .then((res) => {
+          store.setUserLogin(true, res.data.token, loginData.username)
           this.hasError = false
           this.$router.push(`/user/${loginData.username}`)
         })

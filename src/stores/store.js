@@ -5,7 +5,8 @@ export const useStore = defineStore('store', {
   state: () => ({
     jsonData: null,
     isUserLogged: false,
-    userToken: null
+    userToken: null,
+    username: null
   }),
   actions: {
     async fetchJsonData() {
@@ -17,9 +18,18 @@ export const useStore = defineStore('store', {
         throw error
       }
     },
-    switchUserLogin(token) {
-      this.isUserLogged = !this.isUserLogged
+    setUserLogin(state, token, username) {
+      this.isUserLogged = state
       this.userToken = token
+      this.username = username
+
+      if (state) {
+        localStorage.setItem('userToken', token)
+        localStorage.setItem('userName', username)
+      } else {
+        localStorage.removeItem('userToken')
+        localStorage.removeItem('userName')
+      }
     }
   }
 })
