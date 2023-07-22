@@ -96,7 +96,7 @@ export default {
     color: $color-text;
   }
   a {
-    color: #515d74;
+    color: $color-text-hidden;
     text-decoration: none;
   }
 

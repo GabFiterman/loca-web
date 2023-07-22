@@ -24,6 +24,7 @@ export default defineConfig({
           $color-highlight: #F30168 ;
           $color-text-inverted: #fff;
           $color-text-secondary: #666;
+          $color-text-hidden: #515d74;
           $color-text: #292D32;
           $font-family: 'Sora', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
           $font-size-mainTitle: 28px;

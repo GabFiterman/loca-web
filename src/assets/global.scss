@@ -4,27 +4,27 @@
 *::before,
 *::after {
   box-sizing: border-box;
-  margin: 0;
   font-weight: normal;
+  margin: 0;
 }
 
 body {
-  min-height: 100vh;
-  color: $color-text;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
   background: $color-background;
-  transition: color 0.5s, background-color 0.5s;
-  line-height: 1.6;
+  color: $color-text;
   font-family: $font-family !important;
   font-size: $font-size-default;
+  line-height: 1.6;
+  min-height: 100vh;
   text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  transition: color 0.5s, background-color 0.5s;
 
   #app {
-    max-width: 1280px;
-    margin: 0 auto;
-    padding: 2rem;
     font-weight: normal;
+    margin: 0 auto;
+    max-width: 1280px;
+    padding: 2rem;
   }
 }
 

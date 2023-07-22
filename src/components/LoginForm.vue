@@ -92,13 +92,12 @@ export default {
 
 <style lang="scss" scoped>
 .Form {
-  width: 570px;
-  // min-height: 492px;
-  border-radius: 5px;
-  border: 1px solid #e6eaf2;
   background: #fff;
-  padding: 28px 30px;
+  border-radius: 5px;
+  border: 1px solid $color-borders-light;
   margin-top: 30px;
+  padding: 28px 30px;
+  width: 570px;
 
   label {
     display: block;
@@ -107,18 +106,17 @@ export default {
 
   input,
   button {
-    width: 100%;
-    padding: 24px 16px;
-    //   margin: 0 auto;
-    font-size: 16px;
-    border-radius: 5px;
-    border: 1px solid rgba(81, 93, 116, 0.5);
     background: #fff;
+    border-radius: 5px;
+    border: 1px solid $color-borders-main;
+    font-size: 16px;
+    padding: 24px 16px;
+    width: 100%;
   }
 
   button {
-    outline: none;
     border: none;
+    outline: none;
   }
 
   input::placeholder,
@@ -128,7 +126,7 @@ export default {
 
   button {
     background: $color-highlight;
-    color: #fff;
+    color: $color-text-inverted;
     text-transform: uppercase;
   }
 }
