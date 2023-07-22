@@ -1,5 +1,6 @@
 <script setup>
 import { useStore } from '@/stores/store'
+import jsonDataMixin from '@/mixins/jsonDataMixin'
 </script>
 
 <template>
@@ -11,12 +12,12 @@ import { useStore } from '@/stores/store'
     </div>
     <div class="row">
       <div class="col">
-        <div v-html="textData.title"></div>
+        <div v-html="textData.RegisterFirst.title"></div>
       </div>
     </div>
     <div class="row">
       <div class="col">
-        <p>{{ textData.subtitle }}</p>
+        <p>{{ textData.RegisterFirst.subtitle }}</p>
       </div>
     </div>
   </main>
@@ -25,24 +26,7 @@ import { useStore } from '@/stores/store'
 <script>
 export default {
   name: 'PlansPage',
-  computed: {
-    textData() {
-      const store = useStore()
-      if (!store.jsonData) return ''
-      const jsonString = JSON.stringify(store.jsonData)
-      const jsonObject = JSON.parse(jsonString)
-
-      return jsonObject.RegisterFirst
-    },
-    logoFile() {
-      const store = useStore()
-      if (!store.jsonData) return ''
-      const jsonString = JSON.stringify(store.jsonData)
-      const jsonObject = JSON.parse(jsonString)
-
-      return jsonObject.Global.logoFile
-    }
-  },
+  mixins: [jsonDataMixin],
   beforeCreate() {
     useStore().fetchJsonData()
   }

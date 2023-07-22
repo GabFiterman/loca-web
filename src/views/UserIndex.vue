@@ -1,9 +1,10 @@
 <script setup>
 import { useStore } from '@/stores/store'
+import jsonDataMixin from '@/mixins/jsonDataMixin'
 </script>
 
 <template>
-  <main class="container-fluid UserIndex">
+  <main v-if="textData" class="container-fluid UserIndex">
     <div class="row">
       <div class="col-11"></div>
       <div class="col-1">
@@ -23,13 +24,13 @@ import { useStore } from '@/stores/store'
     <div class="container UserIndex__dashboard">
       <div class="row">
         <div class="col">
-          <h2 class="secondaryTitle bold">{{ textData.title }} {{ username }}</h2>
+          <h2 class="secondaryTitle bold">{{ textData.InitialPage.title }} {{ username }}</h2>
         </div>
       </div>
 
       <div class="row">
         <div class="col">
-          <p>{{ textData.subtitle }}</p>
+          <p>{{ textData.InitialPage.subtitle }}</p>
         </div>
       </div>
 
@@ -37,7 +38,7 @@ import { useStore } from '@/stores/store'
         <div class="col">
           <iframe
             class="youtubeVideo"
-            :src="`https://www.youtube.com/embed/${textData.mainResource.src}`"
+            :src="`https://www.youtube.com/embed/${textData.InitialPage.mainResource.src}`"
             title="YouTube video player"
             frameborder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -48,7 +49,7 @@ import { useStore } from '@/stores/store'
 
       <div class="row mt-4">
         <div class="col">
-          <div v-html="textData.contactUs"></div>
+          <div v-html="textData.InitialPage.contactUs"></div>
         </div>
       </div>
     </div>
@@ -58,6 +59,7 @@ import { useStore } from '@/stores/store'
 <script>
 export default {
   name: 'UserIndex',
+  mixins: [jsonDataMixin],
   data() {
     return {
       username: this.$route.params.username,
@@ -77,22 +79,6 @@ export default {
     }
   },
   computed: {
-    textData() {
-      const store = useStore()
-      if (!store.jsonData) return ''
-      const jsonString = JSON.stringify(store.jsonData)
-      const jsonObject = JSON.parse(jsonString)
-
-      return jsonObject.InitialPage
-    },
-    logoFile() {
-      const store = useStore()
-      if (!store.jsonData) return ''
-      const jsonString = JSON.stringify(store.jsonData)
-      const jsonObject = JSON.parse(jsonString)
-
-      return jsonObject.Global.logoFile
-    },
     isUserLogged() {
       const store = useStore()
       return store.isUserLogged
