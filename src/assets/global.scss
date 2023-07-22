@@ -23,7 +23,6 @@ body {
   #app {
     font-weight: normal;
     margin: 0 auto;
-    max-width: 1280px;
     padding: 2rem;
   }
 }
@@ -34,6 +33,11 @@ body {
 
 .error {
   color: red;
+}
+
+.logo--default {
+  height: 62px;
+  width: auto;
 }
 
 .bold {
