@@ -172,15 +172,15 @@
     "changePlan": "Trocar Plano"
   },
   "InitialPage": {
-    "title": "Olá",
+    "title": "Olá, ",
     "subtitle": "Seja bem vindo a sua conta de hospedagem.",
     "mainResource": {
-      "type": "image",
-      "src": "",
-      "alt": "",
-      "href": ""
+      "type": "youtube video",
+      "src": "UU-EdJlKg3I",
+      "alt": "O que é GitHub e como usá-lo? | Locaweb",
+      "href": "https://www.youtube.com/watch?v=UU-EdJlKg3I&ab_channel=Locaweb"
     },
-    "contactUs": "<p>Caso tenha alguma dúvida, <a class=\"underline\" href=\"https://www.mussumipsum.com/\" target=\"_blank\">visite nossa central de ajuda.</a></p>",
+    "contactUs": "<p>Caso tenha alguma dúvida, <a class=\"underline\" style=\"color: inherit\" href=\"https://www.mussumipsum.com/\" target=\"_blank\">visite nossa central de ajuda.</a></p>",
     "logout": "Sair"
   }
 }

@@ -78,11 +78,6 @@ export default {
 .LoginPage {
   margin-top: 150px;
 
-  .logo--default {
-    height: 62px;
-    width: auto;
-  }
-
   .secondaryTitle {
     line-height: 16px;
   }
