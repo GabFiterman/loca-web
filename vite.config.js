@@ -28,6 +28,7 @@ export default defineConfig({
           $color-text-hidden: #515d74;
           $color-text: #292D32;
           $font-family: 'Sora', Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+          $font-size-xl: 34px;
           $font-size-mainTitle: 28px;
           $font-size-secondaryTitle: 26px;
           $font-size-subtitle: 18px;
