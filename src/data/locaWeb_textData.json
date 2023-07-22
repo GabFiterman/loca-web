@@ -1,13 +1,13 @@
 {
   "Global": {
-    "logoFile": "LogoLocalWeb.png"
+    "logoFile": "Logo-LocaWeb.webp"
   },
   "Login": {
     "title": "Entre na sua conta",
     "subtitle": "Para acessar sua conta informe seu e-mail e senha",
-    "email": {
-      "title": "E-mail",
-      "placeholder": "Seu e-mail"
+    "username": {
+      "title": "Usuário",
+      "placeholder": "Seu nome de usuário"
     },
     "password": {
       "title": "Senha",
@@ -16,7 +16,8 @@
     "forgotPass": "Esqueci minha senha",
     "login": "Fazer login",
     "notMember": "Ainda não tem conta?",
-    "signin": "Cadastre-se"
+    "signin": "Cadastre-se",
+    "error": "* Usuário ou senha incorretos, verifique e tente novamente!"
   },
   "RegisterFirst": {
     "title": "<p>Você está muito próximo de mudar a forma de <b class=\"highlight\"> hospedar seu site</b></p>",
