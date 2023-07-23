@@ -2,6 +2,7 @@
 import jsonDataMixin from '@/mixins/jsonDataMixin'
 import PlanCard from '@/components/PlanCard.vue'
 import { useStore } from '@/stores/store'
+import axios from 'axios'
 </script>
 
 <template>
@@ -99,7 +100,9 @@ import { useStore } from '@/stores/store'
 
           <div class="row">
             <div class="col">
-              <button class="">{{ textData.RegisterSecond.createAccount }}</button>
+              <button @click="handleCreateAccount">
+                {{ textData.RegisterSecond.createAccount }}
+              </button>
             </div>
           </div>
         </main>
@@ -144,7 +147,7 @@ export default {
       return this.textData.RegisterSecond.formProfessional
     },
     showPasswordError() {
-      if (!this.passwordConfirm || this.passwordConfirm == this.textForm.password) return false
+      if (!this.passwordConfirm || this.passwordConfirm == this.formData.password) return false
       else return true
     },
     choosedPlan() {
@@ -166,6 +169,43 @@ export default {
   methods: {
     handleSwitchPlan() {
       this.$router.push('/plans')
+    },
+    handleCreateAccount() {
+      const { name, phone, email, password } = this.formData
+      const passwordConfirm = this.passwordConfirm
+      const siteName = this.siteName
+
+      if (name && phone && email && password && passwordConfirm && siteName) {
+        if (this.agreePrivacyTerms) {
+          if (password === passwordConfirm) {
+            const userInfo = {
+              username: name,
+              email: email,
+              password: password
+            }
+            const fakeToken = 'eyJhbGciOiJIUzI1NiIsInR'
+
+            const store = useStore()
+            axios
+              .post('https://fakestoreapi.com/users', userInfo)
+              .then(() => {
+                store.setUserLogin(true, fakeToken, name)
+                this.$router.push(`/user/${name}`)
+              })
+              .catch((error) => {
+                console.error(error)
+              })
+          } else {
+            alert('Senhas não coincidem!')
+          }
+        } else {
+          alert(
+            'Você precisa concordar com os termos de uso e políticas de privacidade para criar uma conta!'
+          )
+        }
+      } else {
+        alert('Por favor, preencha todos os campos')
+      }
     }
   },
   components: [PlanCard]
