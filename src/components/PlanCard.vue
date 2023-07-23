@@ -44,7 +44,9 @@ import { useStore } from '@/stores/store'
 
     <div v-if="!hideButton" class="row mt-4">
       <div class="col">
-        <button @click="handleChoosedPlan">{{ textCard.btnText }}</button>
+        <router-link to="/signin">
+          <button @click="handleChoosedPlan">{{ textCard.btnText }}</button>
+        </router-link>
       </div>
     </div>
 
