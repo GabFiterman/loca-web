@@ -27,7 +27,7 @@ import { useStore } from '@/stores/store'
               <h3 class="bold">{{ textForm.title }}</h3>
             </div>
 
-            <div class="row SigninMain__subtitle">
+            <div class="row subtitle SigninMain__subtitle">
               <div class="col">
                 <p>{{ textForm.subtitle }}</p>
               </div>
@@ -41,20 +41,23 @@ import { useStore } from '@/stores/store'
             >
               <div class="col">
                 <label>{{ inputItem.title }}</label>
-                <br />
                 <input
                   :type="inputItem.type"
                   :placeholder="inputItem.type !== 'password' ? inputItem.placeholder : ''"
                   v-model="formData[inputItem.name]"
                 />
+                <p class="SigninPage__form--instructions" v-if="inputItem.observation">
+                  {{ inputItem.observation }}
+                </p>
               </div>
             </div>
             <div class="row SinginPage__form">
               <div class="col">
                 <label>Confirme sua senha</label>
-                <br />
                 <input type="password" v-model="passwordConfirm" />
-                <p v-if="showPasswordError">* Senhas não coincidem</p>
+                <p class="error" v-if="showPasswordError">
+                  {{ textData.RegisterSecond.errorPassword }}
+                </p>
               </div>
             </div>
           </div>
@@ -70,7 +73,6 @@ import { useStore } from '@/stores/store'
           <div class="row">
             <div class="col">
               <label>{{ textFormProfessional.inputs[0].title }}</label>
-              <br />
               <input
                 :type="textFormProfessional.inputs[0].type"
                 :placeholder="textFormProfessional.inputs[0].placeholder"
@@ -84,7 +86,11 @@ import { useStore } from '@/stores/store'
 
           <div class="row">
             <div class="col-1">
-              <input class="form-check-input check" type="checkbox" v-model="agreePrivacyTerms" />
+              <input
+                class="form-check-input SinginMain__input--check"
+                type="checkbox"
+                v-model="agreePrivacyTerms"
+              />
             </div>
             <div class="col">
               <div v-html="textData.RegisterSecond.privacyTerms"></div>
@@ -103,16 +109,14 @@ import { useStore } from '@/stores/store'
       <div class="col-4" v-if="choosedPlan">
         <div class="row">
           <div class="col-12">
-            <div class="ActualPlan_container">
-              <div class="ActualPlan__PlanCard text-center">
-                <PlanCard :textCard="choosedPlan" :hideButton="true" />
-              </div>
+            <div class="ActualPlan__PlanCard text-center">
+              <PlanCard :textCard="choosedPlan" :hideButton="true" />
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-12">
-            <button class="switchPlan" @click="handleSwitchPlan">Trocar Plano</button>
+            <button class="ActualPlan__switchPlan" @click="handleSwitchPlan">Trocar Plano</button>
           </div>
         </div>
       </div>
@@ -171,94 +175,89 @@ export default {
 <style lang="scss" scoped>
 .SigninPage {
   padding: 0 8vw;
-
-  .SigninPage__title {
-    padding: 0 10vw;
-    line-height: 2rem;
-  }
-
-  .SigninMain__subtitle {
-    margin-bottom: -1rem;
-  }
-
-  label {
+  label,
+  span {
     font-size: $font-size-xsm;
-    margin-bottom: 0.25rem;
     margin-top: 1rem;
   }
 
   button {
-    background: $color-highlight;
-    border-radius: 5px;
-    border: none;
-    color: $color-text-inverted;
-    font-size: $font-size-xsm;
     font-weight: 400;
     letter-spacing: 1px;
-    padding: 20px 24px;
-    text-transform: uppercase;
-    width: 100%;
   }
 
-  .ActualPlan__PlanCard {
-    max-height: 58em;
-    overflow-y: scroll;
+  span {
+    color: $color-text-secondary;
   }
-  scrollbar-width: thin;
+
+  input {
+    padding: 1em;
+  }
+
+  .SigninPage__title {
+    line-height: 2rem;
+    padding: 0 10vw;
+  }
+
+  /* Start Scrollbar */
   scrollbar-color: $color-borders-light $color-text-inverted;
+  scrollbar-width: thin;
 
-  /* Estilos para a barra de rolagem */
   ::-webkit-scrollbar {
     width: 2px;
   }
   ::-webkit-scrollbar-thumb {
-    background-color: $color-borders-light; /* Cor do botão de rolagem */
-    border-radius: 5px; /* Bordas arredondadas */
+    background-color: $color-borders-light;
+    border-radius: $border-radius-main;
   }
   ::-webkit-scrollbar-track {
-    background-color: $color-text-inverted; /* Cor da trilha de rolagem */
+    background-color: $color-text-inverted;
   }
+  /* End scrollbar */
 
-  .switchPlan {
+  .SigninMain {
+    background-color: $color-text-inverted;
+    border-radius: $border-radius-main;
+    outline: $color-borders-light 1px solid;
+    padding: 1.75em 2em;
+    width: 95%;
+    .SigninMain__subtitle {
+      margin-bottom: -1rem;
+    }
+
+    .SinginPage__form {
+      input {
+        width: 104.75%;
+      }
+      .SigninPage__form--instructions {
+        color: $color-text-secondary;
+        font-size: $font-size-xsm;
+        margin-top: 0.25em;
+      }
+    }
+
+    .SinginMain__input--check {
+      height: 22px;
+      padding: 0 !important;
+      width: 15px;
+
+      &:checked {
+        background-color: $color-highlight;
+        border-color: $color-text-inverted;
+      }
+    }
+  }
+  .ActualPlan__PlanCard {
+    max-height: 58em;
+    overflow-y: scroll;
+  }
+  .ActualPlan__switchPlan {
     background-color: #fff;
-    color: black;
-    outline: black 1px solid;
     box-shadow: -1px -42px 36px 28px rgba(255, 255, 255, 0.83);
     -webkit-box-shadow: -1px -42px 36px 28px rgba(255, 255, 255, 0.83);
     -moz-box-shadow: -1px -42px 36px 28px rgba(255, 255, 255, 0.83);
-  }
-}
-.check {
-  width: 15px;
-  height: 22px;
-  padding: 0 !important;
-
-  &:checked {
-    background-color: $color-highlight;
-    border-color: $color-text-inverted;
-  }
-}
-
-.SigninMain {
-  background-color: $color-text-inverted;
-  border-radius: 5px;
-  outline: $color-borders-light 1px solid;
-  padding: 1.75em 1.5em;
-  width: 95%;
-
-  input {
-    background: #fff;
-    border-radius: 5px;
-    border: 1px solid $color-borders-main;
-    font-size: 16px;
-    padding: 16px 20px;
-    width: 100%;
-  }
-
-  .SinginPage__form {
-    input {
-      width: 104.75%;
-    }
+    color: black;
+    outline: black 1px solid;
   }
 }
 </style>

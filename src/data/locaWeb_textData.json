@@ -120,7 +120,7 @@
   "RegisterSecond": {
     "title": "<p class=\"bold\" >Você está muito próximo de mudar a forma de <b class=\"highlight bold underline\"> hospedar seu site</b></p>",
     "formPersonal": {
-      "title": "Dados Pessoais",
+      "title": "Dados pessoais",
       "subtitle": "Informe seus dados pessoais para acesso à sua conta",
       "inputs": [
         {
@@ -169,7 +169,8 @@
     "privacyTerms": "<p>Ao concluir com seu cadastro você concorda com nossos <a class=\"underline\" href=\"https://www.mussumipsum.com/\" target=\"_blank\">termos de uso</a> e <a class=\"underline\" href=\"https://www.mussumipsum.com/\" target=\"_blank\">politicas de privacidade</a>.</p>",
     "createAccount": "Criar Conta",
     "selectedPlan": "Plano Escolhido",
-    "changePlan": "Trocar Plano"
+    "changePlan": "Trocar Plano",
+    "errorPassword": "* Senhas não coincidem"
   },
   "InitialPage": {
     "title": "Olá, ",

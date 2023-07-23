@@ -17,6 +17,7 @@ export default defineConfig({
     preprocessorOptions: {
       scss: {
         additionalData: `
+          $border-radius-main: 5px;
           $color-background: #FAFAFC;
           $color-borders-light: #E6EAF2;
           $color-borders-main: rgba(81, 93, 116, 0.50);

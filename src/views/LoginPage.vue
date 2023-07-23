@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .LoginPage {
-  margin-top: 150px;
+  margin-top: 10em;
 
   .secondaryTitle {
     line-height: 16px;

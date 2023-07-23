@@ -96,13 +96,13 @@ export default {
     background-color: $color-light-grey;
     border-radius: 5rem;
     color: $color-text-inverted;
+    cursor: pointer;
     font-weight: bold;
     height: 52px;
     padding: 1rem;
     text-align: center;
-    width: 52px;
-    cursor: pointer;
     transition: 0.5s all ease-in-out;
+    width: 52px;
 
     &:hover {
       filter: brightness(1.075);

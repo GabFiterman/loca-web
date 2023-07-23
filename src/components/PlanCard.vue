@@ -75,7 +75,7 @@ export default {
   computed: {
     handleValue() {
       return this.textCard.value
-        ? `<h4><label>R$</label><b class="price">${this.textCard.value}</b><label>/mês</label></h4>`
+        ? `<h4><span>R$</span><b class="price">${this.textCard.value}</b><span>/mês</span></h4>`
         : '<h4 class="price bold">Grátis</h4>'
     }
   },
@@ -109,24 +109,15 @@ export default {
   .recomendation {
     color: $color-text-secondary;
   }
-  button {
-    background: $color-highlight;
-    color: $color-text-inverted;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    padding: 20px 24px;
-    text-transform: uppercase;
-  }
 
   .highlight {
     min-height: 8vh;
     p {
       background-color: $color-elevate;
-      color: $color-text-inverted;
       border-radius: 0.5em;
-      text-transform: uppercase;
+      color: $color-text-inverted;
       padding: 4px 6px;
+      text-transform: uppercase;
     }
   }
 }
