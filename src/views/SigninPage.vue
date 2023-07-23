@@ -1,5 +1,7 @@
 <script setup>
 import jsonDataMixin from '@/mixins/jsonDataMixin'
+import PlanCard from '@/components/PlanCard.vue'
+import { useStore } from '@/stores/store'
 </script>
 
 <template>
@@ -82,7 +84,7 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
 
           <div class="row">
             <div class="col-1">
-              <input type="checkbox" v-model="agreePrivacyTerms" />
+              <input class="form-check-input check" type="checkbox" v-model="agreePrivacyTerms" />
             </div>
             <div class="col">
               <div v-html="textData.RegisterSecond.privacyTerms"></div>
@@ -98,7 +100,22 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
       </div>
 
       <!-- TODO: Card do plano atual  -->
-      <div class="col-3 ActualPlan"></div>
+      <div class="col-4" v-if="choosedPlan">
+        <div class="row">
+          <div class="col-12">
+            <div class="ActualPlan_container">
+              <div class="ActualPlan__PlanCard text-center">
+                <PlanCard :textCard="choosedPlan" :hideButton="true" />
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <button class="switchPlan" @click="handleSwitchPlan">Trocar Plano</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -125,8 +142,29 @@ export default {
     showPasswordError() {
       if (!this.passwordConfirm || this.passwordConfirm == this.textForm.password) return false
       else return true
+    },
+    choosedPlan() {
+      const store = useStore()
+      return store.choosedPlan
     }
-  }
+  },
+  beforeRouteLeave(to, from, next) {
+    if (from.path === '/signin' && !to.path.includes('/user')) {
+      if (window.confirm('Deseja mesmo sair? As alterações não serão salvas.')) {
+        next()
+      } else {
+        next(false)
+      }
+    } else {
+      next()
+    }
+  },
+  methods: {
+    handleSwitchPlan() {
+      this.$router.push('/plans')
+    }
+  },
+  components: [PlanCard]
 }
 </script>
 
@@ -161,6 +199,44 @@ export default {
     text-transform: uppercase;
     width: 100%;
   }
+
+  .ActualPlan__PlanCard {
+    max-height: 58em;
+    overflow-y: scroll;
+  }
+  scrollbar-width: thin;
+  scrollbar-color: $color-borders-light $color-text-inverted;
+
+  /* Estilos para a barra de rolagem */
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: $color-borders-light; /* Cor do botão de rolagem */
+    border-radius: 5px; /* Bordas arredondadas */
+  }
+  ::-webkit-scrollbar-track {
+    background-color: $color-text-inverted; /* Cor da trilha de rolagem */
+  }
+
+  .switchPlan {
+    background-color: #fff;
+    color: black;
+    outline: black 1px solid;
+    box-shadow: -1px -42px 36px 28px rgba(255, 255, 255, 0.83);
+    -webkit-box-shadow: -1px -42px 36px 28px rgba(255, 255, 255, 0.83);
+    -moz-box-shadow: -1px -42px 36px 28px rgba(255, 255, 255, 0.83);
+  }
+}
+.check {
+  width: 15px;
+  height: 22px;
+  padding: 0 !important;
+
+  &:checked {
+    background-color: $color-highlight;
+    border-color: $color-text-inverted;
+  }
 }
 
 .SigninMain {
@@ -184,11 +260,5 @@ export default {
       width: 104.75%;
     }
   }
-}
-
-.ActualPlan {
-  background-color: blue;
-  min-height: 100px;
-  min-width: 100px;
 }
 </style>
