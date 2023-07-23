@@ -44,6 +44,7 @@ import axios from 'axios'
                 <label>{{ inputItem.title }}</label>
                 <input
                   :type="inputItem.type"
+                  :name="inputItem.name"
                   :placeholder="inputItem.type !== 'password' ? inputItem.placeholder : ''"
                   v-model="formData[inputItem.name]"
                 />
@@ -55,7 +56,7 @@ import axios from 'axios'
             <div class="row SinginPage__form">
               <div class="col">
                 <label>Confirme sua senha</label>
-                <input type="password" v-model="passwordConfirm" />
+                <input type="password" name="confirmPassword" v-model="passwordConfirm" />
                 <p class="error" v-if="showPasswordError">
                   {{ textData.RegisterSecond.errorPassword }}
                 </p>
@@ -78,6 +79,7 @@ import axios from 'axios'
                 :type="textFormProfessional.inputs[0].type"
                 :placeholder="textFormProfessional.inputs[0].placeholder"
                 v-model="siteName"
+                name="companyName"
               />
               <span>{{ textFormProfessional.inputs[0].observation }}</span>
             </div>
