@@ -11,7 +11,7 @@
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  background: $color-background;
+  background: $color-background !important;
   color: $color-text;
   font-family: $font-family !important;
   font-size: $font-size-default;
@@ -19,6 +19,42 @@ body {
   min-height: 100vh;
   text-rendering: optimizeLegibility;
   transition: color 0.5s, background-color 0.5s;
+
+  a {
+    color: inherit;
+  }
+  
+  label {
+    display: block;
+    margin-left: 0.25em;
+    margin-bottom: 0.25em;
+  }
+
+  input {
+    background: #fff;
+    border-radius: $border-radius-main;
+    border: 1px solid $color-borders-main;
+    font-size: 16px;
+    padding: 1.5em 1em;
+    width: 100%;
+  }
+
+  input:focus {
+    border: none;
+    outline: 1px solid $color-highlight;
+  }
+
+  button {
+    background: $color-highlight;
+    color: $color-text-inverted;
+    border-radius: $border-radius-main;
+    border: none;
+    outline: none;
+    font-size: $font-size-sm;
+    padding: 20px 24px;
+    text-transform: uppercase;
+    width: 100%;
+  }
 
   #app {
     font-weight: normal;

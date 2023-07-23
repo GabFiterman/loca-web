@@ -93,7 +93,7 @@ export default {
 <style lang="scss" scoped>
 .Form {
   background: #fff;
-  border-radius: 5px;
+  border-radius: $border-radius-main;
   border: 1px solid $color-borders-light;
   margin-top: 30px;
   padding: 28px 30px;
@@ -101,33 +101,11 @@ export default {
 
   label {
     display: block;
-    margin-left: 2px;
-  }
-
-  input,
-  button {
-    background: #fff;
-    border-radius: 5px;
-    border: 1px solid $color-borders-main;
-    font-size: 16px;
-    padding: 24px 16px;
-    width: 100%;
-  }
-
-  button {
-    border: none;
-    outline: none;
   }
 
   input::placeholder,
   textarea::placeholder {
     color: inherit;
-  }
-
-  button {
-    background: $color-highlight;
-    color: $color-text-inverted;
-    text-transform: uppercase;
   }
 }
 </style>

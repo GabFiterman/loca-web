@@ -5,8 +5,14 @@ import { useStore } from '@/stores/store'
 <template>
   <div class="container PlanCard">
     <div class="row highlight align-items-center justify-content-center">
-      <div v-if="textCard.highlight" class="col-7">
+      <div v-if="textCard.highlight && !selectedPlan" class="col-7">
         <p>Mais usado</p>
+      </div>
+    </div>
+
+    <div class="row choosedPlan align-items-center justify-content-center">
+      <div v-if="selectedPlan" class="col-9">
+        <p>Plano Escolhido</p>
       </div>
     </div>
 
@@ -44,7 +50,9 @@ import { useStore } from '@/stores/store'
 
     <div v-if="!hideButton" class="row mt-4">
       <div class="col">
-        <button @click="handleChoosedPlan">{{ textCard.btnText }}</button>
+        <router-link to="/signin">
+          <button @click="handleChoosedPlan">{{ textCard.btnText }}</button>
+        </router-link>
       </div>
     </div>
 
@@ -68,12 +76,17 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    selectedPlan: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
     handleValue() {
       return this.textCard.value
-        ? `<h4><label>R$</label><b class="price">${this.textCard.value}</b><label>/mês</label></h4>`
+        ? `<h4><span>R$</span><b class="price">${this.textCard.value}</b><span>/mês</span></h4>`
         : '<h4 class="price bold">Grátis</h4>'
     }
   },
@@ -107,24 +120,25 @@ export default {
   .recomendation {
     color: $color-text-secondary;
   }
-  button {
-    background: $color-highlight;
-    color: $color-text-inverted;
-    border-radius: 5px;
-    border: none;
-    font-size: 16px;
-    padding: 20px 24px;
-    text-transform: uppercase;
-  }
 
-  .highlight {
+  .highlight,
+  .choosedPlan {
     min-height: 8vh;
     p {
       background-color: $color-elevate;
-      color: $color-text-inverted;
       border-radius: 0.5em;
-      text-transform: uppercase;
+      color: $color-text-inverted;
       padding: 4px 6px;
+      text-transform: uppercase;
+    }
+  }
+
+  .choosedPlan {
+    margin-top: -3em;
+    p {
+      background-color: black;
+      color: white;
+      font-size: 0.75em;
     }
   }
 }

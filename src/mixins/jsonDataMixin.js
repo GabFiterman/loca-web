@@ -16,5 +16,8 @@ export default {
       const jsonObject = JSON.parse(jsonString)
       return jsonObject.Global.logoFile
     }
+  },
+  beforeCreate() {
+    useStore().fetchJsonData()
   }
 }

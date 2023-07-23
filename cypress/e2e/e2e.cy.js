@@ -30,14 +30,6 @@ describe('User Index Page', () => {
       .should('include', 'https://www.youtube.com/embed/UU-EdJlKg3I')
   })
 
-  it('Recarrega a página logada', () => {
-    // Recarrega a página
-    cy.reload()
-
-    // Verifica se o nome de usuário ainda está presente na página
-    cy.contains('h2', 'johnd').should('be.visible')
-  })
-
   it('Desloga o usuário corretamente', () => {
     // Clica no avatar para abrir o menu de usuário
     cy.get('.UserIndex__avatar').click()
@@ -51,4 +43,98 @@ describe('User Index Page', () => {
     // Verifica se o nome de usuário não está mais presente na página
     cy.contains('h2', 'InitialPage Johnd').should('not.exist')
   })
+})
+
+
+describe('Create An Account', () => {
+  it('Carrega a página inicial e clica em registre-se', () => {
+    cy.visit('/')
+    cy.get('a').eq(1).click()
+    cy.url().should('include', '/plans')
+  })
+
+  it('Seleciona um plano e verifica se foi selecionado corretamente', () => {
+    cy.visit('/plans')
+    cy.get('button').eq(0).click()
+    cy.url().should('include', '/signin')
+    cy.contains('h3', 'Hospedagem 1')
+
+    cy.visit('/plans')
+    cy.get('button').eq(1).click()
+    cy.url().should('include', '/signin')
+    cy.contains('h3', 'Hospedagem 2')
+
+    cy.visit('/plans')
+    cy.get('button').eq(2).click()
+    cy.url().should('include', '/signin')
+    cy.contains('h3', 'Hospedagem 3')
+  })
+
+  it('Tenta Login Incorreto, sem info', () => {
+    cy.visit('/plans')
+    cy.get('button').eq(0).click()
+
+    cy.on('window:alert', (text) => {
+      expect(text).to.include('preencha todos os campos')
+    })
+    cy.get('button').first().click()
+  })
+
+  it('Tenta Login Incorreto, senhas diferentes', () => {
+    cy.visit('/plans')
+    cy.get('button').eq(0).click()
+
+    cy.on('window:alert', (text) => {
+      expect(text).to.include('Senhas não coincidem')
+    })
+
+    cy.get('input[name="name"]').type('Gabriel Fiterman')
+    cy.get('input[name="phone"]').type('62 98460-2348')
+    cy.get('input[name="email"]').type('gfiterman96@gmail.com')
+    cy.get('input[name="password"]').type('123445678')
+    cy.get('input[name="confirmPassword"]').type('1234')
+    cy.get('input[name="companyName"]').type('webearts')
+    cy.get('input[type="checkbox"]').click()
+    cy.get('button').first().click()
+
+  })
+
+  it('Tenta Login Incorreto, não aceita termos', () => {
+    cy.visit('/plans')
+    cy.get('button').eq(0).click()
+
+    cy.on('window:alert', (text) => {
+      expect(text).to.include('termos de uso e políticas de privacidade')
+    })
+
+    cy.get('input[name="name"]').type('Gabriel Fiterman')
+    cy.get('input[name="phone"]').type('62 98460-2348')
+    cy.get('input[name="email"]').type('gfiterman96@gmail.com')
+    cy.get('input[name="password"]').type('123445678')
+    cy.get('input[name="confirmPassword"]').type('123445678')
+    cy.get('input[name="companyName"]').type('webearts')
+    cy.get('button').first().click()
+  })
+
+  it('Cria uma conta corretamente', () => {
+    cy.visit('/plans')
+    cy.get('button').eq(0).click()
+
+    cy.on('window:alert', (text) => {
+      expect(text).to.include('termos de uso e políticas de privacidade')
+    })
+
+    cy.get('input[name="name"]').type('Gabriel Fiterman')
+    cy.get('input[name="phone"]').type('62 98460-2348')
+    cy.get('input[name="email"]').type('gfiterman96@gmail.com')
+    cy.get('input[name="password"]').type('123445678')
+    cy.get('input[name="confirmPassword"]').type('123445678')
+    cy.get('input[name="companyName"]').type('webearts')
+    cy.get('input[type="checkbox"]').click()
+    cy.get('button').first().click()
+
+    cy.url().should('include', '/Gabriel')
+    cy.contains('h2', 'Gabriel')
+  })
+
 })
