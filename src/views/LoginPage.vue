@@ -2,6 +2,7 @@
 import { useStore } from '@/stores/store'
 import axios from 'axios'
 import LoginForm from '../components/LoginForm.vue'
+import jsonDataMixin from '@/mixins/jsonDataMixin'
 </script>
 
 <template>
@@ -12,13 +13,13 @@ import LoginForm from '../components/LoginForm.vue'
       </div>
     </div>
 
-    <LoginForm :textData="textData" @submitForm="onSubmitForm" :hasError="hasError" />
+    <LoginForm :textData="textData.Login" @submitForm="onSubmitForm" :hasError="hasError" />
 
     <div class="row justify-content-center align-items-center text-center">
       <div class="col">
-        <a class="subtitle" href="#" target="_blank">
-          {{ textData.notMember }} <em>{{ textData.signin }}</em>
-        </a>
+        <router-link to="/plans" class="subtitle">
+          {{ textData.Login.notMember }} <em>{{ textData.Login.signin }}</em>
+        </router-link>
       </div>
     </div>
   </main>
@@ -26,27 +27,11 @@ import LoginForm from '../components/LoginForm.vue'
 
 <script>
 export default {
+  name: 'LoginPage',
+  mixins: [jsonDataMixin],
   data() {
     return {
       hasError: false
-    }
-  },
-  computed: {
-    textData() {
-      const store = useStore()
-      if (!store.jsonData) return ''
-      const jsonString = JSON.stringify(store.jsonData)
-      const jsonObject = JSON.parse(jsonString)
-
-      return jsonObject.Login
-    },
-    logoFile() {
-      const store = useStore()
-      if (!store.jsonData) return ''
-      const jsonString = JSON.stringify(store.jsonData)
-      const jsonObject = JSON.parse(jsonString)
-
-      return jsonObject.Global.logoFile
     }
   },
   methods: {

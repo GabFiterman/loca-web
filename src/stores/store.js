@@ -6,7 +6,8 @@ export const useStore = defineStore('store', {
     jsonData: null,
     isUserLogged: false,
     userToken: null,
-    username: null
+    username: null,
+    choosedPlan: null
   }),
   actions: {
     async fetchJsonData() {
@@ -30,6 +31,9 @@ export const useStore = defineStore('store', {
         localStorage.removeItem('userToken')
         localStorage.removeItem('userName')
       }
+    },
+    setChoosedPlan(plan) {
+      this.choosedPlan = plan
     }
   }
 })
