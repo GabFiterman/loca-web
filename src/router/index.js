@@ -41,7 +41,16 @@ const router = createRouter({
     {
       path: '/signin',
       name: 'Signin',
-      component: () => import('../views/SigninPage.vue')
+      component: () => import('../views/SigninPage.vue'),
+      beforeEnter: (to, from, next) => {
+        const store = useStore()
+
+        if (!store.choosedPlan) {
+          next('/plans')
+        } else {
+          next()
+        }
+      }
     }
   ]
 })
