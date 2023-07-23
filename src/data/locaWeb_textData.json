@@ -118,7 +118,7 @@
     "subtitle": "Escolha o seu plano"
   },
   "RegisterSecond": {
-    "title": "<p>Você está muito próximo de mudar a forma de <b class=\"highlight\"> hospedar seu site</b></p>",
+    "title": "<p class=\"bold\" >Você está muito próximo de mudar a forma de <b class=\"highlight bold underline\"> hospedar seu site</b></p>",
     "formPersonal": {
       "title": "Dados Pessoais",
       "subtitle": "Informe seus dados pessoais para acesso à sua conta",
