@@ -110,7 +110,7 @@ import { useStore } from '@/stores/store'
         <div class="row">
           <div class="col-12">
             <div class="ActualPlan__PlanCard text-center">
-              <PlanCard :textCard="choosedPlan" :hideButton="true" />
+              <PlanCard :textCard="choosedPlan" :hideButton="true" :selectedPlan="true" />
             </div>
           </div>
         </div>

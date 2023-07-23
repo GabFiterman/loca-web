@@ -5,8 +5,14 @@ import { useStore } from '@/stores/store'
 <template>
   <div class="container PlanCard">
     <div class="row highlight align-items-center justify-content-center">
-      <div v-if="textCard.highlight" class="col-7">
+      <div v-if="textCard.highlight && !selectedPlan" class="col-7">
         <p>Mais usado</p>
+      </div>
+    </div>
+
+    <div class="row choosedPlan align-items-center justify-content-center">
+      <div v-if="selectedPlan" class="col-9">
+        <p>Plano Escolhido</p>
       </div>
     </div>
 
@@ -70,6 +76,11 @@ export default {
       type: Boolean,
       required: false,
       default: false
+    },
+    selectedPlan: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -110,7 +121,8 @@ export default {
     color: $color-text-secondary;
   }
 
-  .highlight {
+  .highlight,
+  .choosedPlan {
     min-height: 8vh;
     p {
       background-color: $color-elevate;
@@ -118,6 +130,15 @@ export default {
       color: $color-text-inverted;
       padding: 4px 6px;
       text-transform: uppercase;
+    }
+  }
+
+  .choosedPlan {
+    margin-top: -3em;
+    p {
+      background-color: black;
+      color: white;
+      font-size: 0.75em;
     }
   }
 }
