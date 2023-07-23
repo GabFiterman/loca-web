@@ -27,7 +27,7 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
 
 <script>
 export default {
-  name:"LoginPage",
+  name: 'LoginPage',
   mixins: [jsonDataMixin],
   data() {
     return {

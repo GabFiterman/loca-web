@@ -23,7 +23,7 @@ export default defineConfig({
           $color-elevate: #10C300;
           $color-highlight: #F30168 ;
           $color-text-inverted: #fff;
-          $color-light-grey: #D9D9D9;          $color-text-inverted: #fff;
+          $color-light-grey: #D9D9D9;
           $color-text-secondary: #666;
           $color-text-hidden: #515d74;
           $color-text: #292D32;
