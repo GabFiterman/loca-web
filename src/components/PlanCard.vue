@@ -1,3 +1,7 @@
+<script setup>
+import { useStore } from '@/stores/store'
+</script>
+
 <template>
   <div class="container PlanCard">
     <div class="row highlight align-items-center justify-content-center">
@@ -38,9 +42,9 @@
 
     <hr />
 
-    <div class="row mt-4">
+    <div v-if="!hideButton" class="row mt-4">
       <div class="col">
-        <button>{{ textCard.btnText }}</button>
+        <button @click="handleChoosedPlan">{{ textCard.btnText }}</button>
       </div>
     </div>
 
@@ -59,6 +63,11 @@ export default {
     textCard: {
       type: Object,
       required: true
+    },
+    hideButton: {
+      type: Boolean,
+      required: false,
+      default: false
     }
   },
   computed: {
@@ -66,6 +75,12 @@ export default {
       return this.textCard.value
         ? `<h4><label>R$</label><b class="price">${this.textCard.value}</b><label>/mês</label></h4>`
         : '<h4 class="price bold">Grátis</h4>'
+    }
+  },
+  methods: {
+    handleChoosedPlan() {
+      const store = useStore()
+      store.setChoosedPlan(this.textCard)
     }
   }
 }
