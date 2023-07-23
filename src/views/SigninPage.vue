@@ -221,6 +221,7 @@ export default {
     outline: $color-borders-light 1px solid;
     padding: 1.75em 2em;
     width: 95%;
+
     .SigninMain__subtitle {
       margin-bottom: -1rem;
     }
@@ -237,9 +238,10 @@ export default {
     }
 
     .SinginMain__input--check {
-      height: 22px;
+      height: 18px;
       padding: 0 !important;
       width: 15px;
+      border-color: $color-highlight;
 
       &:checked {
         background-color: $color-highlight;
