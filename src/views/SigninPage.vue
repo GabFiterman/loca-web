@@ -1,16 +1,21 @@
+<script setup>
+import jsonDataMixin from '@/mixins/jsonDataMixin'
+</script>
+
 <template>
-  <div class="container SigninPage">
+  <main v-if="textData" class="container SigninPage">
     <div class="row">
       <div class="col">
-        <h1>Signin</h1>
+        <img class="logo--default" :src="`/img/${logoFile}`" alt="Logo Locaweb" />
       </div>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
 export default {
-  name: 'SigninPage'
+  name: 'SigninPage',
+  mixins: [jsonDataMixin],
 }
 </script>
 

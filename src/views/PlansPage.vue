@@ -1,5 +1,4 @@
 <script setup>
-import { useStore } from '@/stores/store'
 import jsonDataMixin from '@/mixins/jsonDataMixin'
 import PlansGallery from '../components/PlansGallery.vue'
 </script>
@@ -37,9 +36,6 @@ import PlansGallery from '../components/PlansGallery.vue'
 export default {
   name: 'PlansPage',
   mixins: [jsonDataMixin],
-  beforeCreate() {
-    useStore().fetchJsonData()
-  },
   components: { PlansGallery }
 }
 </script>

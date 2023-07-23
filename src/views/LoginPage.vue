@@ -52,9 +52,6 @@ export default {
   },
   components: {
     LoginForm
-  },
-  beforeCreate() {
-    useStore().fetchJsonData()
   }
 }
 </script>

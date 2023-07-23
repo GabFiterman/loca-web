@@ -86,9 +86,6 @@ export default {
     avatarInitial() {
       return this.username[0].toUpperCase()
     }
-  },
-  beforeCreate() {
-    useStore().fetchJsonData()
   }
 }
 </script>
