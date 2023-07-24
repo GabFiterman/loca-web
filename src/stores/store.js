@@ -11,7 +11,7 @@ export const useStore = defineStore('store', {
   actions: {
     async fetchJsonData() {
       try {
-        const jsonFiles = import.meta.glob('./data/locaWeb_textData.json')
+        const jsonFiles = import.meta.glob('../data/locaWeb_textData.json')
     
         for (const path in jsonFiles) {
           const response = await import(path)
