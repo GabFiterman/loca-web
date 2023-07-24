@@ -11,8 +11,9 @@ export const useStore = defineStore('store', {
   }),
   actions: {
     async fetchJsonData() {
+      const pathData = '@/data/locaWeb_textData.json'
       try {
-        const response = await axios.get('/src/data/locaWeb_textData.json')
+        const response = await axios.get(pathData)
         this.jsonData = response.data
       } catch (error) {
         console.error('Erro ao buscar os dados do JSON:', error)
