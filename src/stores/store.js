@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import axios from 'axios'
 
 export const useStore = defineStore('store', {
   state: () => ({
@@ -11,10 +10,13 @@ export const useStore = defineStore('store', {
   }),
   actions: {
     async fetchJsonData() {
-      const pathData = '@/data/locaWeb_textData.json'
       try {
-        const response = await axios.get(pathData)
-        this.jsonData = response.data
+        const jsonFiles = import.meta.glob('./data/locaWeb_textData.json')
+    
+        for (const path in jsonFiles) {
+          const response = await import(path)
+          this.jsonData = response.default
+        }
       } catch (error) {
         console.error('Erro ao buscar os dados do JSON:', error)
         throw error
