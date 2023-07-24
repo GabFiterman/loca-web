@@ -108,4 +108,10 @@ export default {
     color: inherit;
   }
 }
+
+@media (max-width: 768px) {
+  .Form {
+    width: 80vw;
+  }
+}
 </style>

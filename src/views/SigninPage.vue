@@ -19,9 +19,9 @@ import axios from 'axios'
       </div>
     </div>
 
-    <div class="row">
+    <div class="invertedRow">
       <!-- NOTE: Dados pessoais -->
-      <div class="col-8">
+      <div class="col-lg-8 col-sm-12 order-md-first order-sm-last">
         <main class="container SigninMain">
           <div class="row">
             <div class="col">
@@ -111,7 +111,7 @@ import axios from 'axios'
       </div>
 
       <!-- TODO: Card do plano atual  -->
-      <div class="col-4" v-if="choosedPlan">
+      <div class="col-lg-4 col-sm-12 order-md-last order-sm-first" v-if="choosedPlan">
         <div class="row">
           <div class="col-12">
             <div class="ActualPlan__PlanCard text-center">
@@ -216,6 +216,16 @@ export default {
 
 <style lang="scss" scoped>
 .SigninPage {
+  .invertedRow {
+    --bs-gutter-x: 1.5rem;
+    --bs-gutter-y: 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: calc(-1 * var(--bs-gutter-y));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+  }
+
   padding: 0 8vw;
   label,
   span {
@@ -302,6 +312,25 @@ export default {
     -moz-box-shadow: -1px -42px 36px 28px rgba(255, 255, 255, 0.83);
     color: black;
     outline: black 1px solid;
+  }
+}
+
+@media (max-width: 450px) {
+  .container {
+    padding: 0 !important;
+  }
+}
+@media (max-width: 768px) {
+  .invertedRow {
+    flex-direction: column-reverse;
+  }
+
+  .ActualPlan__PlanCard {
+    max-height: 20em !important;
+  }
+
+  .ActualPlan__switchPlan {
+    margin-bottom: 2em;
   }
 }
 </style>
