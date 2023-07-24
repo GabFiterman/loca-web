@@ -5,19 +5,15 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
 
 <template>
   <main v-if="textData" class="container-fluid UserIndex">
-    <div class="row">
-      <div class="col-11"></div>
+    <div class="row no-wrap">
+      <div class="col" v-if="logoFile">
+        <img :src="`/img/${logoFile}`" alt="" class="logo--default" />
+      </div>
       <div class="col-1">
         <p class="UserIndex__avatar" @click="toggleUserMenu">{{ avatarInitial }}</p>
         <div v-if="showUserMenu" class="UserIndex__menu">
           <p @click="handleLogOff">Sair</p>
         </div>
-      </div>
-    </div>
-
-    <div v-if="logoFile" class="row">
-      <div class="col">
-        <img :src="`/img/${logoFile}`" alt="" class="logo--default" />
       </div>
     </div>
 
@@ -98,11 +94,11 @@ export default {
     color: $color-text-inverted;
     cursor: pointer;
     font-weight: bold;
-    height: 52px;
+    height: 3.5em;
     padding: 1rem;
     text-align: center;
     transition: 0.5s all ease-in-out;
-    width: 52px;
+    width: 3.5em;
 
     &:hover {
       filter: brightness(1.075);
@@ -121,11 +117,6 @@ export default {
     }
   }
 
-  .logo--default {
-    margin-left: -1em;
-    margin-top: -5em;
-  }
-
   .UserIndex__dashboard {
     max-width: 60vw;
   }
@@ -133,6 +124,27 @@ export default {
   .youtubeVideo {
     aspect-ratio: 16/9;
     width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .UserIndex__avatar {
+    margin-left: -3em;
+  }
+  .UserIndex {
+    width: 80vw !important;
+  }
+
+  .container {
+    padding: 0 !important;
+  }
+
+  .UserIndex__menu {
+    margin-left: -2em !important;
+  }
+
+  .UserIndex__dashboard {
+    max-width: 100vw !important;
   }
 }
 </style>
