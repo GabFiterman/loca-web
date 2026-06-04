@@ -3,7 +3,7 @@ import { useStore } from '@/stores/store'
 </script>
 
 <template>
-  <div class="container PlanCard">
+  <div class="container PlanCard" :class="{ 'highlighted-card': textCard.highlight && !selectedPlan }">
     <div class="row highlight align-items-center justify-content-center">
       <div v-if="textCard.highlight && !selectedPlan" class="col-7">
         <p>Mais usado</p>
@@ -101,6 +101,26 @@ export default {
 
 <style lang="scss" scoped>
 .PlanCard {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+  min-height: 100%;
+
+  &:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+  }
+
+  &.highlighted-card {
+    background: rgba(243, 1, 104, 0.03) !important;
+    border: 1px solid rgba(243, 1, 104, 0.25) !important;
+  }
+
   .secondaryTitle {
     color: $color-text-secondary;
   }
@@ -130,6 +150,8 @@ export default {
       color: $color-text-inverted;
       padding: 4px 6px;
       text-transform: uppercase;
+      font-size: 11px;
+      font-weight: bold;
     }
   }
 

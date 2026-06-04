@@ -9,7 +9,7 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
   <main v-if="textData" class="container LoginPage">
     <div v-if="logoFile" class="row justify-content-center align-items-center">
       <div class="col text-center">
-        <img class="logo--default" :src="`/img/${logoFile}`" alt="Logo LocaWeb" />
+        <img class="logo--default" :src="`/img/${logoFile}`" alt="Logo LokaWeb" />
       </div>
     </div>
 
@@ -37,6 +37,24 @@ export default {
   methods: {
     onSubmitForm(loginData) {
       const store = useStore()
+
+      // Check registered users in local storage first
+      try {
+        const registered = JSON.parse(localStorage.getItem('registered_users') || '[]')
+        const matched = registered.find(u => 
+          (u.username === loginData.username || u.email === loginData.username) && 
+          u.password === loginData.password
+        )
+        if (matched) {
+          store.setUserLogin(true, 'eyJhbGciOiJIUzI1NiIsInR', matched.username)
+          this.hasError = false
+          this.$router.push(`/user/${matched.username}`)
+          return
+        }
+      } catch (err) {
+        console.error('Error checking local storage users', err)
+      }
+
       axios
         .post('https://fakestoreapi.com/auth/login', loginData)
         .then((res) => {

@@ -1,6 +1,6 @@
 {
-  "name": "loca-web",
-  "version": "0.0.0",
+  "name": "loka-web",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "vite",

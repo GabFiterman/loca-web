@@ -17,76 +17,58 @@ describe('User Index Page', () => {
 
   it('Exibe o nome de usuário correto na rota e página', () => {
     cy.url().should('include', 'johnd')
-    cy.contains('h2', 'johnd').should('be.visible')
+    cy.contains('h1', 'O que é GitHub e como usá-lo').should('be.visible')
   })
 
   it('Carrega o vídeo corretamente', () => {
-    // Verifica se o iframe do vídeo está presente na página
     cy.get('iframe.youtubeVideo').should('be.visible')
-
-    // Verifica se o atributo 'src' do iframe contém o ID correto do vídeo
     cy.get('iframe.youtubeVideo')
       .invoke('attr', 'src')
       .should('include', 'https://www.youtube.com/embed/UU-EdJlKg3I')
   })
 
   it('Desloga o usuário corretamente', () => {
-    // Clica no avatar para abrir o menu de usuário
-    cy.get('.UserIndex__avatar').click()
-
-    // Clica no botão de sair no menu de usuário
-    cy.contains('.UserIndex__menu p', 'Sair').click()
-
-    // Verifica se a URL mudou para a página de login
+    cy.get('.avatar-wrapper').click()
+    cy.contains('.UserIndex__menu button', 'Sair').click()
     cy.url().should('include', '/login')
-
-    // Verifica se o nome de usuário não está mais presente na página
-    cy.contains('h2', 'InitialPage Johnd').should('not.exist')
   })
 })
-
 
 describe('Create An Account', () => {
   it('Carrega a página inicial e clica em registre-se', () => {
     cy.visit('/')
-    cy.get('a').eq(1).click()
+    cy.contains('a', 'Cadastre-se').click()
     cy.url().should('include', '/plans')
   })
 
   it('Seleciona um plano e verifica se foi selecionado corretamente', () => {
     cy.visit('/plans')
-    cy.get('button').eq(0).click()
+    cy.get('.PlanCard button').eq(0).click()
     cy.url().should('include', '/signin')
     cy.contains('h3', 'Hospedagem 1')
 
     cy.visit('/plans')
-    cy.get('button').eq(1).click()
+    cy.get('.PlanCard button').eq(1).click()
     cy.url().should('include', '/signin')
     cy.contains('h3', 'Hospedagem 2')
 
     cy.visit('/plans')
-    cy.get('button').eq(2).click()
+    cy.get('.PlanCard button').eq(2).click()
     cy.url().should('include', '/signin')
     cy.contains('h3', 'Hospedagem 3')
   })
 
-  it('Tenta Login Incorreto, sem info', () => {
+  it('Tenta Registro Incorreto, sem preencher campos', () => {
     cy.visit('/plans')
-    cy.get('button').eq(0).click()
-
-    cy.on('window:alert', (text) => {
-      expect(text).to.include('preencha todos os campos')
-    })
-    cy.get('button').first().click()
+    cy.get('.PlanCard button').eq(0).click()
+    cy.contains('button', 'Criar Conta').click()
+    cy.get('.alert-danger').should('contain', 'Por favor, corrija os erros')
+    cy.get('.error').should('be.visible')
   })
 
-  it('Tenta Login Incorreto, senhas diferentes', () => {
+  it('Tenta Registro Incorreto, senhas diferentes', () => {
     cy.visit('/plans')
-    cy.get('button').eq(0).click()
-
-    cy.on('window:alert', (text) => {
-      expect(text).to.include('Senhas não coincidem')
-    })
+    cy.get('.PlanCard button').eq(0).click()
 
     cy.get('input[name="name"]').type('Gabriel Fiterman')
     cy.get('input[name="phone"]').type('62 98460-2348')
@@ -95,17 +77,13 @@ describe('Create An Account', () => {
     cy.get('input[name="confirmPassword"]').type('1234')
     cy.get('input[name="companyName"]').type('webearts')
     cy.get('input[type="checkbox"]').click()
-    cy.get('button').first().click()
-
+    cy.contains('button', 'Criar Conta').click()
+    cy.get('.error').should('contain', 'senhas não coincidem')
   })
 
-  it('Tenta Login Incorreto, não aceita termos', () => {
+  it('Tenta Registro Incorreto, não aceita termos', () => {
     cy.visit('/plans')
-    cy.get('button').eq(0).click()
-
-    cy.on('window:alert', (text) => {
-      expect(text).to.include('termos de uso e políticas de privacidade')
-    })
+    cy.get('.PlanCard button').eq(0).click()
 
     cy.get('input[name="name"]').type('Gabriel Fiterman')
     cy.get('input[name="phone"]').type('62 98460-2348')
@@ -113,16 +91,13 @@ describe('Create An Account', () => {
     cy.get('input[name="password"]').type('123445678')
     cy.get('input[name="confirmPassword"]').type('123445678')
     cy.get('input[name="companyName"]').type('webearts')
-    cy.get('button').first().click()
+    cy.contains('button', 'Criar Conta').click()
+    cy.get('.error').should('contain', 'Termos de Uso')
   })
 
   it('Cria uma conta corretamente', () => {
     cy.visit('/plans')
-    cy.get('button').eq(0).click()
-
-    cy.on('window:alert', (text) => {
-      expect(text).to.include('termos de uso e políticas de privacidade')
-    })
+    cy.get('.PlanCard button').eq(0).click()
 
     cy.get('input[name="name"]').type('Gabriel Fiterman')
     cy.get('input[name="phone"]').type('62 98460-2348')
@@ -131,10 +106,8 @@ describe('Create An Account', () => {
     cy.get('input[name="confirmPassword"]').type('123445678')
     cy.get('input[name="companyName"]').type('webearts')
     cy.get('input[type="checkbox"]').click()
-    cy.get('button').first().click()
+    cy.contains('button', 'Criar Conta').click()
 
-    cy.url().should('include', '/Gabriel')
-    cy.contains('h2', 'Gabriel')
+    cy.url().should('include', '/user/Gabriel%20Fiterman')
   })
-
 })

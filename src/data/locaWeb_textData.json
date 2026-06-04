@@ -1,6 +1,6 @@
 {
   "Global": {
-    "logoFile": "Logo-LocaWeb.webp"
+    "logoFile": "Logo-LokaWeb.webp"
   },
   "Login": {
     "title": "Entre na sua conta",
@@ -25,7 +25,10 @@
       "highlight": false,
       "name": "Hospedagem 1",
       "value": 0,
-      "paymentConditions": ["você não paga nada para usar", "sem taxa de setup"],
+      "paymentConditions": [
+        "você não paga nada para usar",
+        "sem taxa de setup"
+      ],
       "recomendation": "Ideal para quem está começando.",
       "btnText": "Escolher este plano",
       "beneficts": [
@@ -55,7 +58,10 @@
       "highlight": true,
       "name": "Hospedagem 2",
       "value": 499,
-      "paymentConditions": ["cobrado mensalmente", "sem taxa de setup"],
+      "paymentConditions": [
+        "cobrado mensalmente",
+        "sem taxa de setup"
+      ],
       "recomendation": "Ideal para site com mais de 30k de visitas.",
       "btnText": "Escolher este plano",
       "beneficts": [
@@ -86,7 +92,10 @@
       "highlight": false,
       "name": "Hospedagem 3",
       "value": 999,
-      "paymentConditions": ["cobrado mensalmente", "sem taxa de setup"],
+      "paymentConditions": [
+        "cobrado mensalmente",
+        "sem taxa de setup"
+      ],
       "recomendation": "Ideal para site com mais de 60k de visitas.",
       "btnText": "Escolher este plano",
       "beneficts": [
@@ -178,7 +187,7 @@
     "mainResource": {
       "type": "youtube video",
       "src": "UU-EdJlKg3I",
-      "alt": "O que é GitHub e como usá-lo? | Locaweb",
+      "alt": "O que é GitHub e como usá-lo? | LokaWeb",
       "href": "https://www.youtube.com/watch?v=UU-EdJlKg3I&ab_channel=Locaweb"
     },
     "contactUs": "<p>Caso tenha alguma dúvida, <a class=\"underline\" style=\"color: inherit\" href=\"https://www.mussumipsum.com/\" target=\"_blank\">visite nossa central de ajuda.</a></p>",
