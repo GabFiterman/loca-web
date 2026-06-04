@@ -332,7 +332,11 @@ export default {
     margin-left: calc(-0.5 * var(--bs-gutter-x));
   }
 
-  padding: 0 8vw;
+  padding: 0 4vw;
+
+  @media (min-width: 768px) {
+    padding: 0 8vw;
+  }
   label,
   span {
     font-size: $font-size-xsm;
@@ -453,11 +457,7 @@ export default {
   font-size: 12px;
 }
 
-@media (max-width: 450px) {
-  .container {
-    padding: 0 !important;
-  }
-}
+
 @media (max-width: 768px) {
   .invertedRow {
     flex-direction: column-reverse;

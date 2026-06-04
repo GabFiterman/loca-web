@@ -52,7 +52,7 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
             </div>
 
             <!-- Post Content Area -->
-            <div class="post-body p-4 flex-grow-1">
+            <div class="post-body p-3 p-md-4 flex-grow-1">
               <!-- Meta Info -->
               <div class="post-meta d-flex align-items-center text-muted mb-2 flex-wrap">
                 <span class="subreddit-tag me-2 font-weight-bold">r/lokaweb-learning</span>
@@ -88,16 +88,35 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
               </div>
 
               <!-- Post Info Footer -->
-              <div class="post-footer border-top pt-3 d-flex align-items-center text-muted">
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">💬</span> <strong>45 Comentários</strong>
-                </button>
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">↗</span> Compartilhar
-                </button>
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">💾</span> Salvar
-                </button>
+              <div class="post-footer border-top pt-3 d-flex align-items-center justify-content-between text-muted">
+                <!-- Mobile-only horizontal vote bar (integrated in footer) -->
+                <div class="d-flex d-sm-none align-items-center bg-light rounded-pill px-2 py-1 border" style="white-space: nowrap; width: fit-content;">
+                  <button class="btn btn-vote py-0 px-2" :class="{ 'upvoted': getPostVote(1) === 1 }" @click="vote(1, 1)" title="Upvote">
+                    ▲
+                  </button>
+                  <span class="vote-count mx-1 font-weight-bold" style="white-space: nowrap; display: inline-block; min-width: 24px; text-align: center;">{{ getPostScore(1) }}</span>
+                  <button class="btn btn-vote py-0 px-2" :class="{ 'downvoted': getPostVote(1) === -1 }" @click="vote(1, -1)" title="Downvote">
+                    ▼
+                  </button>
+                </div>
+
+                <!-- Footer Actions -->
+                <div class="d-flex align-items-center ms-auto">
+                  <button class="btn btn-footer-action me-2 me-sm-3 d-flex align-items-center position-relative px-2">
+                    <span class="fs-5 me-1 me-sm-2">💬</span>
+                    <span class="d-none d-sm-inline fw-bold">45 Comentários</span>
+                    <!-- Badge for comments count on mobile -->
+                    <span class="d-inline-block d-sm-none badge bg-highlight text-white ms-1 text-xxs px-2 py-1 rounded-pill" style="background-color: #f30168 !important;">45</span>
+                  </button>
+                  <button class="btn btn-footer-action me-2 me-sm-3 d-flex align-items-center px-2">
+                    <span class="fs-5 me-1 me-sm-2">🔗</span>
+                    <span class="d-none d-sm-inline">Compartilhar</span>
+                  </button>
+                  <button class="btn btn-footer-action d-flex align-items-center px-2">
+                    <span class="fs-5 me-1 me-sm-2">💾</span>
+                    <span class="d-none d-sm-inline">Salvar</span>
+                  </button>
+                </div>
               </div>
 
               <!-- Reddit Comments Section -->
@@ -161,7 +180,7 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
             </div>
 
             <!-- Post Content Area -->
-            <div class="post-body p-4 flex-grow-1">
+            <div class="post-body p-3 p-md-4 flex-grow-1">
               <!-- Meta Info -->
               <div class="post-meta d-flex align-items-center text-muted mb-2 flex-wrap">
                 <span class="subreddit-tag me-2 font-weight-bold">r/lokaweb-learning</span>
@@ -190,16 +209,35 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
               </div>
 
               <!-- Post Info Footer -->
-              <div class="post-footer border-top pt-3 d-flex align-items-center text-muted">
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">💬</span> <strong>23 Comentários</strong>
-                </button>
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">↗</span> Compartilhar
-                </button>
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">💾</span> Salvar
-                </button>
+              <div class="post-footer border-top pt-3 d-flex align-items-center justify-content-between text-muted">
+                <!-- Mobile-only horizontal vote bar (integrated in footer) -->
+                <div class="d-flex d-sm-none align-items-center bg-light rounded-pill px-2 py-1 border" style="white-space: nowrap; width: fit-content;">
+                  <button class="btn btn-vote py-0 px-2" :class="{ 'upvoted': getPostVote(2) === 1 }" @click="vote(2, 1)" title="Upvote">
+                    ▲
+                  </button>
+                  <span class="vote-count mx-1 font-weight-bold" style="white-space: nowrap; display: inline-block; min-width: 24px; text-align: center;">{{ getPostScore(2) }}</span>
+                  <button class="btn btn-vote py-0 px-2" :class="{ 'downvoted': getPostVote(2) === -1 }" @click="vote(2, -1)" title="Downvote">
+                    ▼
+                  </button>
+                </div>
+
+                <!-- Footer Actions -->
+                <div class="d-flex align-items-center ms-auto">
+                  <button class="btn btn-footer-action me-2 me-sm-3 d-flex align-items-center position-relative px-2">
+                    <span class="fs-5 me-1 me-sm-2">💬</span>
+                    <span class="d-none d-sm-inline fw-bold">23 Comentários</span>
+                    <!-- Badge for comments count on mobile -->
+                    <span class="d-inline-block d-sm-none badge bg-highlight text-white ms-1 text-xxs px-2 py-1 rounded-pill" style="background-color: #f30168 !important;">23</span>
+                  </button>
+                  <button class="btn btn-footer-action me-2 me-sm-3 d-flex align-items-center px-2">
+                    <span class="fs-5 me-1 me-sm-2">🔗</span>
+                    <span class="d-none d-sm-inline">Compartilhar</span>
+                  </button>
+                  <button class="btn btn-footer-action d-flex align-items-center px-2">
+                    <span class="fs-5 me-1 me-sm-2">💾</span>
+                    <span class="d-none d-sm-inline">Salvar</span>
+                  </button>
+                </div>
               </div>
             </div>
           </article>
@@ -218,7 +256,7 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
             </div>
 
             <!-- Post Content Area -->
-            <div class="post-body p-4 flex-grow-1">
+            <div class="post-body p-3 p-md-4 flex-grow-1">
               <!-- Meta Info -->
               <div class="post-meta d-flex align-items-center text-muted mb-2 flex-wrap">
                 <span class="subreddit-tag me-2 font-weight-bold">r/lokaweb-learning</span>
@@ -247,16 +285,35 @@ import jsonDataMixin from '@/mixins/jsonDataMixin'
               </div>
 
               <!-- Post Info Footer -->
-              <div class="post-footer border-top pt-3 d-flex align-items-center text-muted">
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">💬</span> <strong>58 Comentários</strong>
-                </button>
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">↗</span> Compartilhar
-                </button>
-                <button class="btn btn-footer-action me-3 d-flex align-items-center">
-                  <span class="me-2">💾</span> Salvar
-                </button>
+              <div class="post-footer border-top pt-3 d-flex align-items-center justify-content-between text-muted">
+                <!-- Mobile-only horizontal vote bar (integrated in footer) -->
+                <div class="d-flex d-sm-none align-items-center bg-light rounded-pill px-2 py-1 border" style="white-space: nowrap; width: fit-content;">
+                  <button class="btn btn-vote py-0 px-2" :class="{ 'upvoted': getPostVote(3) === 1 }" @click="vote(3, 1)" title="Upvote">
+                    ▲
+                  </button>
+                  <span class="vote-count mx-1 font-weight-bold" style="white-space: nowrap; display: inline-block; min-width: 24px; text-align: center;">{{ getPostScore(3) }}</span>
+                  <button class="btn btn-vote py-0 px-2" :class="{ 'downvoted': getPostVote(3) === -1 }" @click="vote(3, -1)" title="Downvote">
+                    ▼
+                  </button>
+                </div>
+
+                <!-- Footer Actions -->
+                <div class="d-flex align-items-center ms-auto">
+                  <button class="btn btn-footer-action me-2 me-sm-3 d-flex align-items-center position-relative px-2">
+                    <span class="fs-5 me-1 me-sm-2">💬</span>
+                    <span class="d-none d-sm-inline fw-bold">58 Comentários</span>
+                    <!-- Badge for comments count on mobile -->
+                    <span class="d-inline-block d-sm-none badge bg-highlight text-white ms-1 text-xxs px-2 py-1 rounded-pill" style="background-color: #f30168 !important;">58</span>
+                  </button>
+                  <button class="btn btn-footer-action me-2 me-sm-3 d-flex align-items-center px-2">
+                    <span class="fs-5 me-1 me-sm-2">🔗</span>
+                    <span class="d-none d-sm-inline">Compartilhar</span>
+                  </button>
+                  <button class="btn btn-footer-action d-flex align-items-center px-2">
+                    <span class="fs-5 me-1 me-sm-2">💾</span>
+                    <span class="d-none d-sm-inline">Salvar</span>
+                  </button>
+                </div>
               </div>
             </div>
           </article>
@@ -391,7 +448,10 @@ export default {
   }
 
   .header-logo {
-    height: 40px !important;
+    height: 32px !important;
+    @media (min-width: 768px) {
+      height: 40px !important;
+    }
   }
 
   .avatar-wrapper {
@@ -471,10 +531,15 @@ export default {
   .vote-count {
     font-size: 12px;
     color: #1a1a1b;
+    white-space: nowrap !important;
+    display: inline-block !important;
   }
 
   .post-body {
     background-color: #fff;
+    min-width: 0;
+    word-break: break-word;
+    overflow-wrap: anywhere;
   }
 
   .post-meta {
@@ -518,6 +583,7 @@ export default {
     font-weight: 700;
     padding: 6px 10px;
     border-radius: 4px;
+    white-space: nowrap;
 
     &:hover {
       background-color: #f6f7f8;

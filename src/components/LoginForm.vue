@@ -449,10 +449,17 @@ export default {
 
 @media (max-width: 768px) {
   .Form {
-    width: 92%;
+    width: 100%;
+    max-width: 100%;
     margin-left: auto;
     margin-right: auto;
     padding: 20px;
+  }
+
+  .info-popover {
+    left: 10px;
+    right: 10px;
+    padding: 10px;
   }
 }
 </style>

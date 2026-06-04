@@ -1,7 +1,7 @@
 <template>
   <div v-if="textData" class="container PlansGallery">
-    <div class="row">
-      <div v-for="plan in plans" :key="plan.id" class="col">
+    <div class="row justify-content-center">
+      <div v-for="plan in plans" :key="plan.id" class="col-12 col-md-4 mb-4">
         <PlanCard :textCard="plan" />
       </div>
     </div>
@@ -30,6 +30,11 @@ export default {
 
 <style lang="scss" scoped>
 .PlansGallery {
-  max-width: 70vw;
+  width: 100%;
+  max-width: 95vw;
+
+  @media (min-width: 768px) {
+    max-width: 80vw;
+  }
 }
 </style>

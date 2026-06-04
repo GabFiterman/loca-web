@@ -3,7 +3,7 @@ import { useStore } from '@/stores/store'
 </script>
 
 <template>
-  <div class="container PlanCard" :class="{ 'highlighted-card': textCard.highlight && !selectedPlan }">
+  <div class="PlanCard" :class="{ 'highlighted-card': textCard.highlight && !selectedPlan }">
     <div class="row highlight align-items-center justify-content-center">
       <div v-if="textCard.highlight && !selectedPlan" class="col-7">
         <p>Mais usado</p>

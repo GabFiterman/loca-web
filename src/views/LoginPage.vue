@@ -76,7 +76,17 @@ export default {
 
 <style lang="scss" scoped>
 .LoginPage {
-  margin-top: 10em;
+  margin-top: 2.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+
+  @media (min-width: 768px) {
+    margin-top: 8em;
+    padding: 2rem;
+  }
 
   .secondaryTitle {
     line-height: 16px;

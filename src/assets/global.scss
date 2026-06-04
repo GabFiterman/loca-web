@@ -59,7 +59,11 @@ body {
   #app {
     font-weight: normal;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 10px;
+
+    @media (min-width: 768px) {
+      padding: 2rem;
+    }
   }
 }
 
